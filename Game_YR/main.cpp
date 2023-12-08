@@ -6,8 +6,8 @@ public:
 	// used to make more readable
 	virtual void OnUpdate() override
 	{
-		std::cout << "game runnung" << std::endl;
-		std::cout << "yay!" << std::endl;
+		//std::cout << "game runnung" << std::endl;
+		//std::cout << "yay!" << std::endl;
 	}
 private:
 };

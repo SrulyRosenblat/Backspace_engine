@@ -1,5 +1,7 @@
 #include "pch.h"
 #include "GLFWImplementation.h"
+#include "Utilities.h"
+
 namespace be {
 	GLFWImplementation::GLFWImplementation() {
 		glfwInit();
@@ -9,7 +11,9 @@ namespace be {
 	}
 	void GLFWImplementation::Create(const std::string& name, int width, int height)
 	{
-		mWindow = glfwCreateWindow(800, 600, "Game_yr", NULL, NULL);
+		mWindow = glfwCreateWindow(width, height, "Game_yr", NULL, NULL);
+		glfwMakeContextCurrent(mWindow);
+
 	}
 	int GLFWImplementation::GetHeight() const
 	{
