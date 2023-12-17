@@ -1,7 +1,7 @@
 #pragma once
 
 #include "pch.h"
-
+#include "Events.h"
 namespace be {
 	class WindowImplementation
 	{
@@ -14,5 +14,9 @@ namespace be {
 
 		// destructer declared so things inheriting dont need to use the window implementation instructer;
 		virtual ~WindowImplementation() {};
+
+		virtual void SetKeyPressedCallback(std::function<void(const KeyPressed&)>& callbackFunc) = 0;
+		virtual void SetKeyReleasedCallback(std::function<void(const KeyReleased&)>& callbackFunc) = 0;
+		virtual void SetWindowCloseCallback(std::function<void()>& callbackFunc) = 0;
 	};
 }

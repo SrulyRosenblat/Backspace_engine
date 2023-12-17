@@ -12,11 +12,7 @@ namespace be
 {
 	OpenGLShader::OpenGLShader(const std::string& vertexSF, const std::string& fragmentSF)
 	{
-		if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
-		{
-			BE_ERROR("failed to initilize glad");
-			return;
-		}
+
 		std::string vertexString = ReadWholeFile(vertexSF);
 		const char* vertexShaderSource = vertexString.c_str();
 		std::string fragmentString{ ReadWholeFile(fragmentSF) };
@@ -32,7 +28,7 @@ namespace be
 		int success;
 		char infoLog[512];
 		glGetShaderiv(vertexShader, GL_COMPILE_STATUS, &success);
-		if (!success) 
+		if (!success)
 		{
 			glGetShaderInfoLog(vertexShader, 512, NULL, infoLog);
 			BE_ERROR("ERROR::SHADER::VERTEX::COMPILATION_FAILED\n" << infoLog);
@@ -70,11 +66,11 @@ namespace be
 	OpenGLShader::OpenGLShader(std::string&& vertexSF,  std::string&& fragmentSF)
 	{
 		// delete later
-		if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
+		/*if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
 		{
 			BE_ERROR("failed to initilize glad");
 			return;
-		}
+		}*/
 		// delete later
 
 		std::string vertexString = ReadWholeFile(move(vertexSF));
