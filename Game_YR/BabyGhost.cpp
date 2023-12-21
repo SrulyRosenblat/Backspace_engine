@@ -1,38 +1,38 @@
 #include "BabyGhost.h"
 
 BabyGhost::BabyGhost(const std::string textureRight, const std::string textureLeft, int x, int y, int boundingHieght, int boundingWidth) :
-	mUnit(textureRight, textureLeft, x, y), boundHeight(boundingHieght), boundWidth(boundingWidth)
+	mUnit(textureRight, textureLeft, x, y), BoundHeight(boundingHieght), BoundWidth(boundingWidth)
 {
 }
 void BabyGhost::MoveTo(int x, int y) {
 	int babyX = mUnit.GetXCoord();
 	int babyY = mUnit.GetYCoord();
 	if ((babyX - x) > 10) {
-		facingRight = false;
-		movingLeft = true;
-		movingRight = false;
+		FacingRight = false;
+		MovingLeft = true;
+		MovingRight = false;
 	}
 	else if ((babyX - x) < -10) {
-		facingRight = true;
-		movingRight = true;
-		movingLeft = false;
+		FacingRight = true;
+		MovingRight = true;
+		MovingLeft = false;
 	}
 	else {
-		movingLeft = false;
-		movingRight = false;
+		MovingLeft = false;
+		MovingRight = false;
 	}
 
 	if ((babyY - y) > 10) {
-		movingUp = false;
-		movingDown = true;
+		MovingUp = false;
+		MovingDown = true;
 	}
 	else if ((babyY - y) < -10) {
-		movingUp = true;
-		movingDown = false;
+		MovingUp = true;
+		MovingDown = false;
 	}
 	else {
-		movingUp = false;
-		movingDown = false;
+		MovingUp = false;
+		MovingDown = false;
 	}
 }
 void BabyGhost::Follow(be::Unit& player)
@@ -47,32 +47,32 @@ void BabyGhost::Follow(be::Unit& player)
 		return;
 	}
 	if ((babyX - playerX) > 300) {
-		facingRight = false;
-		movingLeft = true;
-		movingRight = false; 
+		FacingRight = false;
+		MovingLeft = true;
+		MovingRight = false; 
 	}
 	else if ((babyX - playerEndX) < -300) {
-		facingRight = true;
-		movingRight = true;
-		movingLeft = false; 
+		FacingRight = true;
+		MovingRight = true;
+		MovingLeft = false; 
 	}
 	else {
-		movingLeft = false;
-		movingRight = false; 
+		MovingLeft = false;
+		MovingRight = false; 
 	}
 
 	if ((babyY - playerY) > 10) {
-		movingUp = false;
-		movingDown = true;
+		MovingUp = false;
+		MovingDown = true;
 	}
 	else if ((babyY - playerY) < -10) {
-		movingUp = true;
-		movingDown = false;
+		MovingUp = true;
+		MovingDown = false;
 	}
 	else {
 
-		movingUp = false;
-		movingDown = false;
+		MovingUp = false;
+		MovingDown = false;
 
 	}
 }
@@ -86,25 +86,25 @@ void BabyGhost::MoveTime()
 			waiting = 0;
 		}
 	}
-	if (movingRight && IsInBounds(speed, 0))
-		mUnit.UpdateXCoord(speed);
-	else if (movingLeft && IsInBounds(-speed, 0))
-		mUnit.UpdateXCoord(-speed );
+	if (MovingRight && IsInBounds(Speed, 0))
+		mUnit.UpdateXCoord(Speed);
+	else if (MovingLeft && IsInBounds(-Speed, 0))
+		mUnit.UpdateXCoord(-Speed );
 		
-	if (movingUp && IsInBounds(0, speed))
-		mUnit.UpdateYCoord(speed);
-	else if (movingDown && IsInBounds(0, -speed))
-		mUnit.UpdateYCoord(-speed);
+	if (MovingUp && IsInBounds(0, Speed))
+		mUnit.UpdateYCoord(Speed);
+	else if (MovingDown && IsInBounds(0, -Speed))
+		mUnit.UpdateYCoord(-Speed);
 
-	if (!movingRight && !movingLeft)
+	if (!MovingRight && !MovingLeft)
 		waiting++;
 	else
 		waiting = 0;
 
 	if (waiting == boredThreshold) {
 		bored = true;
-		interestingX = std::rand() % boundWidth;
-		interestingY = std::rand() % boundHeight;
+		interestingX = std::rand() % BoundWidth;
+		interestingY = std::rand() % BoundHeight;
 		exploringTime = timeToExplore;
 	}
 		
@@ -131,13 +131,13 @@ bool BabyGhost::IsInBounds(int x, int y)
 	int width = mUnit.GetWidth();
 	int height = mUnit.GetHeight();
 	if (x)
-		return posx + x > 0 && posx + x + width < boundWidth;
+		return posx + x > 0 && posx + x + width < BoundWidth;
 	else
-		return posy + y > 0 && posy + y + height < boundHeight;
+		return posy + y > 0 && posy + y + height < BoundHeight;
 
 }
 
-be::Unit& BabyGhost::getUnit()
+be::Unit& BabyGhost::GetUnit()
 {
 	return mUnit;
 }

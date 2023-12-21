@@ -1,56 +1,56 @@
 #include "Player.h"
 
 Player::Player(const std::string textureRight, const std::string textureLeft, int x, int y,int boundingHieght,int boundingWidth):
-	mUnit( textureRight,textureLeft,x,y ), boundHeight(boundingHieght),boundWidth(boundingWidth)
+	mUnit( textureRight,textureLeft,x,y ), BoundHeight(boundingHieght),BoundWidth(boundingWidth)
 {
 }
 
 void Player::MoveTime()
 {
-	if (movingRight && IsInBounds(speed, 0))
-		mUnit.UpdateXCoord(speed);
-	else if (movingLeft && IsInBounds(-speed, 0))
-		mUnit.UpdateXCoord(-speed );
-	else if (movingUp && IsInBounds(0, speed))
-		mUnit.UpdateYCoord(speed);
-	else if (movingDown && IsInBounds(0, -speed))
-		mUnit.UpdateYCoord(-speed);
-	if (hoverUp) {
+	if (MovingRight && IsInBounds(Speed, 0))
+		mUnit.UpdateXCoord(Speed);
+	else if (MovingLeft && IsInBounds(-Speed, 0))
+		mUnit.UpdateXCoord(-Speed );
+	else if (MovingUp && IsInBounds(0, Speed))
+		mUnit.UpdateYCoord(Speed);
+	else if (MovingDown && IsInBounds(0, -Speed))
+		mUnit.UpdateYCoord(-Speed);
+	if (HoverUp) {
 		mUnit.UpdateYCoord(1);
-		hoverLevel += 1;
+		HoverLevel += 1;
 
 	}
 	else {
 		mUnit.UpdateYCoord(-1);
-		hoverLevel -= 1;
+		HoverLevel -= 1;
 	}
-	if (hoverLevel >= HoverTop) {
-		hoverUp = false;
+	if (HoverLevel >= HoverTop) {
+		HoverUp = false;
 	}
-	else if (hoverLevel <= hoverBottom) {
-		hoverUp = true;
+	else if (HoverLevel <= hoverBottom) {
+		HoverUp = true;
 	}
 
 }
 
-be::Unit& Player::getUnit()
+be::Unit& Player::GetUnit()
 {
 	return mUnit;
 }
 
 void Player::OnKeyReleased(const be::KeyReleased& e) {
 	if (e.GetKeyCode() == BACKSPACE_KEY_RIGHT) {
-		movingRight = false;
+		MovingRight = false;
 
 	}
 	else if (e.GetKeyCode() == BACKSPACE_KEY_LEFT) {
-		movingLeft = false;
+		MovingLeft = false;
 	}
 	else if (e.GetKeyCode() == BACKSPACE_KEY_UP) {
-		movingUp = false;
+		MovingUp = false;
 	}
 	else if (e.GetKeyCode() == BACKSPACE_KEY_DOWN) {
-		movingDown = false;
+		MovingDown = false;
 	}
 }
 
@@ -58,26 +58,26 @@ void Player::OnKeyPressed(const be::KeyPressed& e) {
 
 	if (e.GetKeyCode() == BACKSPACE_KEY_RIGHT) {
 
-		movingRight = true;
-		facingRight = true;
+		MovingRight = true;
+		FacingRight = true;
 	}
 	else if (e.GetKeyCode() == BACKSPACE_KEY_LEFT) {
 
-		movingLeft = true;
-		facingRight = false;
+		MovingLeft = true;
+		FacingRight = false;
 	}
 	else if (e.GetKeyCode() == BACKSPACE_KEY_UP) {
 
-		movingUp = true;
-		hoverLevel = 0;
-		hoverUp = false;
+		MovingUp = true;
+		HoverLevel = 0;
+		HoverUp = false;
 
 	}
 	else if (e.GetKeyCode() == BACKSPACE_KEY_DOWN) {
 
-		movingDown = true;
-		hoverLevel = 0;
-		hoverUp = true;
+		MovingDown = true;
+		HoverLevel = 0;
+		HoverUp = true;
 	}
 }
 
@@ -88,8 +88,8 @@ bool Player::IsInBounds(int x, int y)
 	int width = mUnit.GetWidth();
 	int height = mUnit.GetHeight();
 	if (x)
-		return posx + x > 0 && posx + x + width < boundWidth;
+		return posx + x > 0 && posx + x + width < BoundWidth;
 	else
-		return posy + y + HoverTop > 0 && posy + y + height < boundHeight;
+		return posy + y + HoverTop > 0 && posy + y + height < BoundHeight;
 
 }

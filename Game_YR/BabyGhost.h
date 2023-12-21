@@ -3,9 +3,9 @@
 
 class BabyGhost {
 public:
-    const int speed{ 10 };
-    bool facingRight{ true };
-    BabyGhost(const std::string textureRight, const std::string textureLeft, int x, int y, int boundHeight, int boundWidth);
+    const int Speed{ 10 };
+    bool FacingRight{ true };
+    BabyGhost(const std::string textureRight, const std::string textureLeft, int x, int y, int BoundHeight, int BoundWidth);
     void MoveTo(int x, int y);
     ~BabyGhost() = default;
     void Follow(be::Unit& player);
@@ -14,14 +14,14 @@ public:
     void SetTimeToExplore(int time);
     void SetBored(bool isBored);
     bool IsInBounds(int x, int y);
-    be::Unit& getUnit();
+    be::Unit& GetUnit();
 
 private:
     int x{ 0 };
     int y{ 0 };
     be::Unit mUnit;
-    int boundHeight;
-    int boundWidth;
+    int BoundHeight;
+    int BoundWidth;
 
     bool bored{ false };
     int timeToExplore{ 75 };
@@ -31,9 +31,9 @@ private:
     int interestingX{ 0 };
     int interestingY{ 0 };
 
-    bool movingRight{ false };
-    bool movingLeft{ false };
-    bool movingUp{ false };
-    bool movingDown{ false };
+    bool MovingRight{ false };
+    bool MovingLeft{ false };
+    bool MovingUp{ false };
+    bool MovingDown{ false };
 
 };

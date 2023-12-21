@@ -4,13 +4,13 @@
 class Player
 {
 public:
-    const int speed{ 30 };
-    bool facingRight{ true };
+    const int Speed{ 30 };
+    bool FacingRight{ true };
     Player(const std::string textureRight, const std::string textureLeft, int x, int y, int boundingHieght, int BoundingWidth);
     ~Player() = default;
 
     void MoveTime();
-    be::Unit& getUnit();
+    be::Unit& GetUnit();
     void OnKeyReleased(const be::KeyReleased& e);
     void OnKeyPressed(const be::KeyPressed& e);
 
@@ -19,16 +19,16 @@ private:
     int x{ 0 };
     int y{ 0 };
     be::Unit mUnit;
-    int hoverLevel{ 0 };
+    int HoverLevel{ 0 };
     int hoverBottom{ -10 };
     int HoverTop{ 10 };
-    int boundHeight;
-    int boundWidth;
+    int BoundHeight;
+    int BoundWidth;
     
-    bool hoverUp{ false };
-    bool movingRight{ false };
-    bool movingLeft{ false };
-    bool movingUp{ false };
-    bool movingDown{ false };
+    bool HoverUp{ false };
+    bool MovingRight{ false };
+    bool MovingLeft{ false };
+    bool MovingUp{ false };
+    bool MovingDown{ false };
     
 };
