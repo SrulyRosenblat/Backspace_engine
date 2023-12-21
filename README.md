@@ -1,4 +1,5 @@
 # Yisroel-Rosenblat-F23
+the program ran using cmake on two seperate machines
 
 ## Game
 ### untitled ghost game
@@ -25,7 +26,6 @@ mechanics:
 
 alterations to the game engine:
 - I made a small change to the unit class so that two images are stored for left and right directions.
-
-
+- I added a DrawAlt function to backsapce.app to draw the alternate image
 image sources:
     I lost the actual image sources when I switched phones (stored on whatsapp) but both the background and player ghost were taken directly from the internet (except for things like fliping and removing background), the baby ghost was modified visualy and I changed things like color so may be harder to find it.
