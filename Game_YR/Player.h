@@ -1,19 +1,34 @@
 #pragma once
-#pragma once
 
-#include <BackSpace.h>
-
+#include "BackSpace.h"
 class Player
 {
 public:
-    Player(const std::string& textureRight, const std::string& textureLeft, int x, int y);
+    const int speed{ 30 };
+    bool facingRight{ true };
+    Player(const std::string textureRight, const std::string textureLeft, int x, int y, int boundingHieght, int BoundingWidth);
     ~Player() = default;
 
-    void MoveOnX(int amount);
-    void MoveOnY(int amount);
+    void MoveTime();
+    be::Unit& getUnit();
+    void OnKeyReleased(const be::KeyReleased& e);
+    void OnKeyPressed(const be::KeyPressed& e);
 
 private:
-    int x;
-    int y;
+    bool IsInBounds(int x,int y);
+    int x{ 0 };
+    int y{ 0 };
     be::Unit mUnit;
+    int hoverLevel{ 0 };
+    int hoverBottom{ -10 };
+    int HoverTop{ 10 };
+    int boundHeight;
+    int boundWidth;
+    
+    bool hoverUp{ false };
+    bool movingRight{ false };
+    bool movingLeft{ false };
+    bool movingUp{ false };
+    bool movingDown{ false };
+    
 };
