@@ -4,7 +4,7 @@ the program ran using cmake on two seperate machines
 ## Game
 ### untitled ghost game
 
-[screen capture](Assets/Pictures/capture.png)
+[screen capture](./Assets/Pictures/capture.png?raw=true "title")
 
 In this game (no real game goal, just float around) you are able to controll a ghost and move around a house aditionaly you have a baby ghost that for the most part follows you around , while the house itself is just one room and non interactive I worked hard to make both the players ghost and the baby ghost feel like they are breathing and simulating inteligence by having the baby ghost move around on its own.
 
