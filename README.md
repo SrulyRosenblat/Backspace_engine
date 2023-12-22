@@ -6,7 +6,7 @@ the program ran using cmake on two separate machines
 
 [screen capture](Assets/Pictures/capture.png)
 
-In this game (no real game goal, just float around) you are able to control a ghost and move around a house additionally you have a baby ghost that for the most part follows you around, while the house itself is just one room and non-interactive I worked hard to make both the player's ghost and the baby ghost feel like they are breathing and simulating intelligence by having the baby ghost move around on its own.
+In this game (no real game goal, just float around) you are able to control a ghost and move around a house additionally you have a baby ghost that for the most part follows you around, while the house itself is just one room and non-interactive I worked hard to make both the player's ghost and the baby ghost feel like they are breathing and simulating intelligence by having the baby ghost move around on its own. The baby ghost follows the player as long as the player keeps moving, if the player stays in one place the Baby ghost gets bored and goes to a random area in the room before coming back and following the player again.
 
 controls:
 - up key
