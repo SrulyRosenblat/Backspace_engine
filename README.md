@@ -25,9 +25,5 @@ mechanics:
 - wait in one place for a while to activate the baby ghost's boredom and it will roam around for a bit and go to a random part of the room.
 
 
-alterations to the game engine:
-- I made a small change to the unit class so that two images are stored for left and right directions.
-- I added a DrawAlt function to backspace.app to draw the alternate image.
-- 
 Image Sources:
 I lost the actual image sources when I switched phones (stored on WhatsApp) but both the background and player ghost were taken directly from the internet (except for things like flipping the images and removing the background), the baby ghost was modified visually and I changed things like the color so may be harder to find it.
