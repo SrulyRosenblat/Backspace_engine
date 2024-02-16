@@ -24,6 +24,3 @@ mechanics:
 - I made holding a key work as opposed to needing to press again for every movement.
 - wait in one place for a while to activate the baby ghost's boredom and it will roam around for a bit and go to a random part of the room.
 
-
-Image Sources:
-I lost the actual image sources when I switched phones (stored on WhatsApp) but both the background and player ghost were taken directly from the internet (except for things like flipping the images and removing the background), the baby ghost was modified visually and I changed things like the color so may be harder to find it.
