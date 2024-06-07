@@ -1,6 +1,6 @@
 ## Game Engine
 
-This game engine was made for the "Intro to Game Engine's Class" at Hunter College. It is based largely on code from the lectures
+This game engine was made for the "Intro to Game Engine's Class" at Hunter College. It is based largely on code from the lectures.
 
 ## Game
 ### untitled ghost game
